@@ -5,18 +5,12 @@ using UnityEngine;
 public class ScoreSetup : MonoBehaviour
 {
     
-    void Start()
+    private void Start()
     {
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.FindAndSetScoreText();
         }
-    }
-
-    
-    void Update()
-    {
-
     }
 
 }

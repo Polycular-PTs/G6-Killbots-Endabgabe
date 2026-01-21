@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
-    public float gameDuration = 300f; 
+    [SerializeField] private float gameDuration = 300f; 
     private float timeRemaining;
     private bool timerActive = true;
 
     [Header("UI References")]
-    public TextMeshProUGUI timerText; 
-    public Canvas timerCanvas;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private Canvas timerCanvas;
 
     
-    void Start()
+    private void Start()
     {
         timeRemaining = gameDuration;
         UpdateTimerDisplay(); 
     }
 
-    void Update()
+    private void Update()
     {
         if (!timerActive) return;
 
@@ -38,7 +38,7 @@ public class GameTimer : MonoBehaviour
        
     }
 
-    void UpdateTimerDisplay()
+    private void UpdateTimerDisplay()
     {
         if (timerText != null)
         {

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;       
-    public float smoothing = 5f;   
-    public Vector3 offset = new Vector3(0f, 0f, -10f); 
+    [SerializeField] private Transform target;
+    [SerializeField] private float smoothing = 5f;
+    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f); 
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (target != null)
         {

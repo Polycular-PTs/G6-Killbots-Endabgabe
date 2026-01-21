@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    void OnMouseDown()
+    private void OnMouseDown()
     {
         Destroy(gameObject);
     }

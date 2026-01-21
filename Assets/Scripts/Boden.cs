@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Boden : MonoBehaviour
 {
-    public float speed = 5f; 
-    public float resetPositionX = -20f; 
-    public float startPositionX = 20f;  
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float resetPositionX = -20f;
+    [SerializeField] private float startPositionX = 20f;  
 
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 

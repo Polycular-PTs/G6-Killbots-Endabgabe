@@ -12,7 +12,7 @@ public class PopupTextEffect : MonoBehaviour
     private Vector2 startPosition;
     private float startTime;
 
-    void Start()
+    private void Start()
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
         rectTransform = GetComponent<RectTransform>();
@@ -29,7 +29,7 @@ public class PopupTextEffect : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void Update()
+    private void Update()
     {
         if (textMeshPro == null || rectTransform == null) return;
 

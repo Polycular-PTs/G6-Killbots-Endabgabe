@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI scoreText;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -26,8 +26,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
-    void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
+    private void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
+    private void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

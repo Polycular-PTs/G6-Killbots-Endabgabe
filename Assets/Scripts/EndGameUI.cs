@@ -6,23 +6,21 @@ using UnityEngine;
 public class EndGameUI : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI resultText;      
-    public TextMeshProUGUI scoreText;       
-    public Color winColor = Color.green;
-    public Color loseColor = Color.red;
+    [SerializeField] private TextMeshProUGUI resultText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Color winColor = Color.green;
+    [SerializeField] private Color loseColor = Color.red;
 
     
-    void Start()
+    private void Start()
     {
         
         int finalScore = ScoreManager.Instance.GetScore();
- 
-        
         UpdateUI();
     }
 
 
-    void UpdateUI()
+    private void UpdateUI() 
     {
         Debug.Log(ScoreManager.Instance.Success);
         Debug.Log(ScoreManager.Instance.GetScore());

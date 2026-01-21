@@ -3,26 +3,26 @@ using UnityEngine;
 public class BotSpawner : MonoBehaviour
 {
     public static BotSpawner Instance;
-    public GameObject botPrefab;
-    public Transform player;
-    public float minSpawnDistanceMultiplier = 1f; 
-    public float maxSpawnDistanceMultiplier = 1.5f; 
-    public float spawnAreaWidth = 3f;
-    public float spawnYPosition = -1.64f;
+    [SerializeField] private GameObject botPrefab;
+    [SerializeField] private Transform player;
+    [SerializeField] private float minSpawnDistanceMultiplier = 1f;
+    [SerializeField] private float maxSpawnDistanceMultiplier = 1.5f;
+    [SerializeField] private float spawnAreaWidth = 3f;
+    [SerializeField] private float spawnYPosition = -1.64f;
 
     private float nextSpawnX;
     private float screenWidth;
     private Camera mainCamera;
     private bool spawnPositionReached = false;
 
-    void Start()
+    private void Start()
     {
         mainCamera = Camera.main;
         screenWidth = CalculateScreenWidth();
         CalculateNextSpawnPosition();
     }
 
-    void Update()
+    private void Update()
     {
         screenWidth = CalculateScreenWidth();
 
@@ -40,7 +40,7 @@ public class BotSpawner : MonoBehaviour
         }
     }
 
-    float CalculateScreenWidth()
+    private float CalculateScreenWidth()
     {
         if (mainCamera == null)
         {
@@ -53,7 +53,7 @@ public class BotSpawner : MonoBehaviour
         return screenHeight * mainCamera.aspect;
     }
 
-    void CalculateNextSpawnPosition()
+    private void CalculateNextSpawnPosition()
     {
         float randomMultiplier = Random.Range(minSpawnDistanceMultiplier, maxSpawnDistanceMultiplier);
         float spawnDistance = randomMultiplier * screenWidth;
@@ -72,7 +72,7 @@ public class BotSpawner : MonoBehaviour
         Debug.Log("Neuer Bot gespawnt");
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         if (player != null && mainCamera != null)
         {

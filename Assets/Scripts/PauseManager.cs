@@ -9,21 +9,21 @@ using JetBrains.Annotations;
 public class PauseManager : MonoBehaviour
 {
 
-    public GameObject pauseCanvas;
+   [SerializeField] private GameObject pauseCanvas;
     public static PauseManager Instance;
-    public GameObject pauseMenuPanel;
-    public GameObject hintsPanel;
-    public GameObject characterSelectionPanel;
-    public GameObject volumePanel;
+   [SerializeField] private GameObject pauseMenuPanel;
+   [SerializeField] private GameObject hintsPanel;
+   [SerializeField] private GameObject characterSelectionPanel;
+   [SerializeField] private GameObject volumePanel;
 
-    public GameObject playerObject;
-    public SpriteRenderer playerRenderer;
-    public Sprite[] playerSprites;
+   [SerializeField] private GameObject playerObject;
+   [SerializeField] private SpriteRenderer playerRenderer;
+   [SerializeField] private Sprite[] playerSprites;
 
-    public Slider volumeSlider;
-    public AudioSource mainAudioSource;
+   [SerializeField] private Slider volumeSlider;
+   [SerializeField] private AudioSource mainAudioSource;
 
-    public GameObject hintsOverlay;
+   [SerializeField] private GameObject hintsOverlay;
 
     private bool isPaused = false;
     public bool IsPaused => isPaused;
@@ -31,13 +31,13 @@ public class PauseManager : MonoBehaviour
     private bool keepCharacterSelectionOpen = false;
 
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
-    void Start()
+    private void Start()
     {
         pauseCanvas.SetActive(false);
         pauseMenuPanel.SetActive(false);
@@ -53,7 +53,7 @@ public class PauseManager : MonoBehaviour
     }
 
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

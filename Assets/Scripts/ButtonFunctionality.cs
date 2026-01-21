@@ -28,6 +28,4 @@ public class ButtonFunctionality : MonoBehaviour
         SceneManager.LoadScene("RecognizingBots");
     }
    
-
-
 }

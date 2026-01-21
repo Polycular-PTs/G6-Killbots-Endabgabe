@@ -3,14 +3,14 @@ using UnityEngine;
 public class MovementCharacter : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;      
-    public float sprintSpeed = 9f;    
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 9f;    
 
     private Rigidbody2D rb;
     private float startX;             
 
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -18,7 +18,7 @@ public class MovementCharacter : MonoBehaviour
         startX = transform.position.x;
     }
 
-    void Update()
+    private void Update()
     {
         float move = 0f;
         float speed = moveSpeed;

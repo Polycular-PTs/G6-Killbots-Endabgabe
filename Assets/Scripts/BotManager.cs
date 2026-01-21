@@ -100,16 +100,16 @@ public class BotManager : MonoBehaviour
     };
 
     [Header("Popup Settings")]
-    public GameObject popupTextPrefab;
-    public Color positiveColor = Color.green;
-    public Color negativeColor = Color.red;
+    [SerializeField] private GameObject popupTextPrefab;
+    [SerializeField] private Color positiveColor = Color.green;
+    [SerializeField] private Color negativeColor = Color.red;
 
     [SerializeField] private TextMeshProUGUI speechBubble;
     private string currentMessageType;
 
     private void Awake() { speechBubble = GetComponentInChildren<TextMeshProUGUI>(); }
 
-    void Start()
+    private void Start()
     {
         AssignRandomMessage();
         if (currentMessageType == "bot") ScoreManager.Instance.AddMaxScore(1);
@@ -144,7 +144,7 @@ public class BotManager : MonoBehaviour
         }
     }
 
-    void ShowPopup(string text, Color color)
+    private void ShowPopup(string text, Color color)
     {
         if (popupTextPrefab == null) return;
         Canvas canvas = Object.FindFirstObjectByType<Canvas>(); 

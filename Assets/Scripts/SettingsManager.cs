@@ -10,21 +10,25 @@ using System;
 public class SettingsManager : MonoBehaviour
 {
     [Header("UI References")]
-    public GameObject settingsCanvas;          
-    public GameObject settingsMenuPanel;       
-    public Slider volumeSlider;                
+    [SerializeField] private GameObject settingsCanvas;
+    [SerializeField] private GameObject settingsMenuPanel;
+    [SerializeField] private Slider volumeSlider;                
 
     [Header("Audio")]
-    public AudioSource targetAudioSource;      
+    [SerializeField] private AudioSource targetAudioSource;      
 
     private void Start()
     {
-       
+
         if (settingsCanvas != null)
-            settingsCanvas.SetActive(false);
+        { 
+            settingsCanvas.SetActive(false); 
+        }
 
         if (settingsMenuPanel != null)
-            settingsMenuPanel.SetActive(false);
+        { 
+            settingsMenuPanel.SetActive(false); 
+        }
 
      
         if (targetAudioSource != null && volumeSlider != null)
@@ -38,23 +42,31 @@ public class SettingsManager : MonoBehaviour
     public void OpenSettings()
     {
         if (settingsCanvas != null)
-            settingsCanvas.SetActive(true);
+        { 
+            settingsCanvas.SetActive(true); 
+        }
 
         if (settingsMenuPanel != null)
-            settingsMenuPanel.SetActive(true);
+        { 
+            settingsMenuPanel.SetActive(true); 
+        }
     }
 
    
     public void CloseSettings()
     {
         if (settingsCanvas != null)
-            settingsCanvas.SetActive(false);
+        { 
+            settingsCanvas.SetActive(false); 
+        }
     }
 
    
     private void UpdateVolume(float value)
     {
         if (targetAudioSource != null)
-            targetAudioSource.volume = value;
+        { 
+            targetAudioSource.volume = value; 
+        }
     }
 }

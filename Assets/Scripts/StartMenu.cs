@@ -12,11 +12,11 @@ public class StartMenu : MonoBehaviour
     private Scene previousSceneName;
     
 
-    int sceneindex;
-    int sceneToOpen;
+    private int sceneindex;
+    private int sceneToOpen;
 
 
-    void Start()
+    private void Start()
     {
         sceneindex = SceneManager.GetActiveScene().buildIndex;
         if (!PlayerPrefs.HasKey("previousScene" + sceneindex))

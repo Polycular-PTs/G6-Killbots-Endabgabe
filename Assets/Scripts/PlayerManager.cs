@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject[] playerPrefabs;
+    [SerializeField] private GameObject[] playerPrefabs;
     private GameObject currentPlayer;
 
-    void Start()
+    private void Start()
     {
         SpawnPlayer(3); 
     }

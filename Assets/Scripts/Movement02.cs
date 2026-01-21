@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Movement02 : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float sprintSpeed = 9f;
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float sprintSpeed = 9f;
 
     private Rigidbody2D rb;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         float move = 0f;
         float speed = moveSpeed;

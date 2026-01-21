@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class OpenScene : MonoBehaviour
 {
-    public int sceneNumber;
+    [SerializeField] private int sceneNumber;
     
     public void OnButtonClick()
     {
