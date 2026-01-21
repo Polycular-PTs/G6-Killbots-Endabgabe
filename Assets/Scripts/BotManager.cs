@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class BotManager : MonoBehaviour
 {
+
+    public const string BOT_TYPE = "bot";
+    public const string HUMAN_TYPE = "human";
+
+
     public Dictionary<string, List<string>> messages = new Dictionary<string, List<string>>()
     {
         { 
-            "bot", new List<string>
+            BOT_TYPE, new List<string>
             {
                  "You have such talent! Check @feature.me – we're looking for creators like you!",
                 "Hey, I noticed you love traveling. Your photos from Greece in your highlights look incredible!! Do you have any tips for someone planning their first trip there.",
@@ -58,7 +63,7 @@ public class BotManager : MonoBehaviour
                 "Congratulations random user",
             }
         },
-        {   "human", new List<string>
+        {   HUMAN_TYPE, new List<string>
             {
                 "Hey, I noticed you love traveling. Your photos from Greece in your highlights look incredible!! Do you have any tips for someone planning their first trip there.",
                 "Hey, I hope this isn’t weird—but you just give off such calm, good energy. Had to say hi ^^",
@@ -112,13 +117,13 @@ public class BotManager : MonoBehaviour
     private void Start()
     {
         AssignRandomMessage();
-        if (currentMessageType == "bot") ScoreManager.Instance.AddMaxScore(1);
+        if (currentMessageType == BOT_TYPE) ScoreManager.Instance.AddMaxScore(1);
     }
 
     public void AssignRandomMessage()
     {
         bool isBotMessage = Random.value > 0.5f;
-        currentMessageType = isBotMessage ? "bot" : "human";
+        currentMessageType = isBotMessage ? BOT_TYPE : HUMAN_TYPE;
         if (messages.ContainsKey(currentMessageType))
         {
             speechBubble.text = messages[currentMessageType][Random.Range(0, messages[currentMessageType].Count)];
@@ -129,7 +134,7 @@ public class BotManager : MonoBehaviour
     {
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
-        if (currentMessageType == "bot") { ScoreManager.Instance.AddScore(1); ShowPopup("+1", positiveColor); }
+        if (currentMessageType == BOT_TYPE) { ScoreManager.Instance.AddScore(1); ShowPopup("+1", positiveColor); }
         else { ScoreManager.Instance.AddScore(-1); ShowPopup("-1", negativeColor); }
         gameObject.SetActive(false);
     }
@@ -138,7 +143,7 @@ public class BotManager : MonoBehaviour
     {
         if (other.CompareTag("PlayerPassZone"))
         {
-            if (currentMessageType == "bot") { ScoreManager.Instance.AddScore(-1); ShowPopup("-1", negativeColor); }
+            if (currentMessageType == BOT_TYPE) { ScoreManager.Instance.AddScore(-1); ShowPopup("-1", negativeColor); }
             else { ScoreManager.Instance.AddScore(1); ShowPopup("+1", positiveColor); }
             gameObject.SetActive(false);
         }
