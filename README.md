@@ -13,6 +13,7 @@ Screenshot:
 <img width="516" height="287" alt="image" src="https://github.com/user-attachments/assets/aebf19bc-e3e2-40e6-bfe3-f8b3f8597a2f" />
 <img width="528" height="286" alt="image" src="https://github.com/user-attachments/assets/9dfaf529-eca6-4b81-b20c-51173f5ab5ec" />
 
+Video-Link: https://www.transfernow.net/dl/202601212NMVYtJu 
 
 
 Development Platform:
@@ -23,6 +24,6 @@ Die Zielplattform des Projekts ist Windows Standalone.
 
 Aufgabenbereiche:
 
-Olivia: Settings Menu, Pause Menu, Hints, Character Selection, Volume SLider
+Olivia: UI von Settings Menu und Pause Menu im Spiel, Settings Menu mit Volume Slider und Controls. Per Klick auf Escape öffnet sich der Pause Menu mit Character Selection, Volume Slider und HInts und per Klick auf H öffnen sich die Hints, AUdio wurde auch von mir implementiert.
 
 Sarah: Punktezählung während dem Spiel fixen, alle Sprechblasentexte auf Englisch übersetzen, mehr Texte, das hinten rausfahren ist nicht mehr möglich
