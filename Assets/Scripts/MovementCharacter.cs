@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class MovementCharacter : MonoBehaviour
 {
+    private const float MOVE_LEFT = -1f;
+    private const float MOVE_RIGHT = 1f;
+    private const float JUMP_FORCE = 9f;
+    private const float NO_MOVEMENT = 0f;
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float sprintSpeed = 9f;    
@@ -20,41 +24,41 @@ public class MovementCharacter : MonoBehaviour
 
     private void Update()
     {
-        float move = 0f;
-        float speed = moveSpeed;
+        float moveDirection = NO_MOVEMENT; 
+        float currentSpeed = moveSpeed;
 
         
         if (Input.GetKey(KeyCode.A))
         {
-            move = -1f;  
+            moveDirection = MOVE_LEFT;  
         }
         if (Input.GetKey(KeyCode.D))
         {
-            move = 1f;   
+            moveDirection = MOVE_RIGHT;   
         }
 
         
-        if (move > 0f && Input.GetKey(KeyCode.LeftShift))
+        if (moveDirection ==  MOVE_RIGHT && Input.GetKey(KeyCode.LeftShift))
         {
-            speed = sprintSpeed;
+            currentSpeed = sprintSpeed;
         }
 
         
-        if (move < 0f && transform.position.x <= startX)
+        if (moveDirection == MOVE_LEFT && transform.position.x <= startX)
         {
-            move = 0f; 
+            moveDirection = NO_MOVEMENT; 
             Vector3 pos = transform.position;
             pos.x = startX;
             transform.position = pos;
         }
 
         
-        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveDirection * currentSpeed, rb.linearVelocity.y);
 
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0f, 9f), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * JUMP_FORCE, ForceMode2D.Impulse);
         }
     }
 }

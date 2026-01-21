@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Movement02 : MonoBehaviour
 {
+    private const float MOVE_LEFT = -1f;
+    private const float MOVE_RIGHT = 1f;
+    private const float JUMP_FORCE = 9f;
+
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float sprintSpeed = 9f;
 
@@ -16,24 +20,24 @@ public class Movement02 : MonoBehaviour
 
     private void Update()
     {
-        float move = 0f;
-        float speed = moveSpeed;
+        float moveDirection = 0f;
+        float currentSpeed = moveSpeed;
 
         if (Input.GetKey(KeyCode.A))
-            move = -moveSpeed;
+            moveDirection = MOVE_LEFT;
 
         if (Input.GetKey(KeyCode.D))
-            move = moveSpeed;
+            moveDirection = MOVE_RIGHT;
 
    
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
-            speed = sprintSpeed;
+            currentSpeed = sprintSpeed;
 
-        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveDirection * currentSpeed, rb.linearVelocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0f,9f), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * JUMP_FORCE, ForceMode2D.Impulse);
             
         }
     }
