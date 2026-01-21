@@ -1418,7 +1418,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778982248}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: RecognizingBots
+        m_MethodName: LoadRecognizingBots
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2346,6 +2346,10 @@ PrefabInstance:
     - target: {fileID: 3945296340941543426, guid: 3225e091fbe3a0a4cbbb1373f8094426, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157566906618602652, guid: 3225e091fbe3a0a4cbbb1373f8094426, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

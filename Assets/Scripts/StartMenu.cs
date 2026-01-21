@@ -4,27 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-  
-    public void GameScene()
+
+    public void LoadGame()
     {
-        SceneManager.LoadScene("GameScene");
+        Scenes.Load(Scenes.SceneType.Game);
     }
 
-    public void SettingsScene()
+    public void LoadSettings()
     {
-        SceneManager.LoadScene("SettingsScene");
+        Scenes.Load(Scenes.SceneType.Settings);
     }
 
-
-    public void InstagramScene()
+    public void LoadInstagram()
     {
-        SceneManager.LoadScene("InstagramScene");
+        Scenes.Load(Scenes.SceneType.Instagram);
     }
 
-    public void RecognizingBots()
+    public void LoadRecognizingBots()
     {
-        SceneManager.LoadScene("RecognizingBots");
+        Scenes.Load(Scenes.SceneType.RecognizingBots);
     }
-
-
 }

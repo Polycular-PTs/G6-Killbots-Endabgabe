@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SettingsScene.unity
     guid: 46dec142cc552364ea221486f46da2a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PauseScene.unity
     guid: d1f438e5c91797c4c965f4f0c337540f
   - enabled: 1
@@ -24,6 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EndScene.unity
     guid: cba3b74ec1e81df4ea6479f8b6a2b144
   - enabled: 1
-    path: Assets/Scenes/RecognizingBots.unity
+    path: Assets/Scenes/RecognizingBotsScene.unity
     guid: c39cb6858f5f54b4c8c9943b4e2369a0
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

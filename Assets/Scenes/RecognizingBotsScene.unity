@@ -2298,7 +2298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1748341563}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: InstagramScene
+        m_MethodName: LoadInstagram
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
