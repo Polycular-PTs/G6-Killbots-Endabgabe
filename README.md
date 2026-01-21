@@ -24,4 +24,5 @@ Die Zielplattform des Projekts ist Windows Standalone.
 Aufgabenbereiche:
 
 Olivia: Settings Menu, Pause Menu, Hints, Character Selection, Volume SLider
+
 Sarah: Punktezählung während dem Spiel fixen, alle Sprechblasentexte auf Englisch übersetzen, mehr Texte, das hinten rausfahren ist nicht mehr möglich
