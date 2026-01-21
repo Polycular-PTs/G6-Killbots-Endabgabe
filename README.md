@@ -23,6 +23,6 @@ Die Zielplattform des Projekts ist Windows Standalone.
 
 Aufgabenbereiche:
 
-Olivia: Settings Menu, Pause Menu, Hints, Character Selection, Volume SLider
+Olivia: UI von Settings Menu und Pause Menu im Spiel, Settings Menu mit Volume Slider und Controls. Per Klick auf Escape öffnet sich der Pause Menu mit Character Selection, Volume Slider und HInts und per Klick auf H öffnen sich die Hints, AUdio wurde auch von mir implementiert.
 
 Sarah: Punktezählung während dem Spiel fixen, alle Sprechblasentexte auf Englisch übersetzen, mehr Texte, das hinten rausfahren ist nicht mehr möglich
