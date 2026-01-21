@@ -12,7 +12,7 @@ Screenshot:
 
 <img width="516" height="287" alt="image" src="https://github.com/user-attachments/assets/aebf19bc-e3e2-40e6-bfe3-f8b3f8597a2f" />
 <img width="528" height="286" alt="image" src="https://github.com/user-attachments/assets/9dfaf529-eca6-4b81-b20c-51173f5ab5ec" />
-
+https://www.transfernow.net/dl/202601212NMVYtJu 
 
 
 Development Platform:
