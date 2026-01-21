@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     private int maxScore = 0;
     private int score = 0;
 
+    private const float SUCCES_THRESHOLD = 0.8f;
+
     [Header("UI References")]
     public TextMeshProUGUI scoreText;
 
@@ -67,7 +69,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreDisplay();
     }
 
-    public bool Success => maxScore > 0 && (float)score / maxScore >= 0.8f;
+    public bool Success => maxScore > 0 && (float)score / maxScore >= SUCCES_THRESHOLD;
 
     public void UpdateScoreDisplay()
     {
