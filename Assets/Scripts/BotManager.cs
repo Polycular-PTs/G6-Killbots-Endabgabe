@@ -16,7 +16,7 @@ public class BotManager : MonoBehaviour
         { 
             BOT_TYPE, new List<string>
             {
-                 "You have such talent! Check @feature.me – we're looking for creators like you!",
+                "You have such talent! Check @feature.me – we're looking for creators like you!",
                 "Hey, I noticed you love traveling. Your photos from Greece in your highlights look incredible!! Do you have any tips for someone planning their first trip there.",
                 "Heyy I just stumbled upon your profile – you have such great vibes Want to get to know each other better? Message me",
                 "Hey! I'm currently helping people turn just 100€ into over 2,000€ in just a few days Interested in a simple guide?",
@@ -110,23 +110,32 @@ public class BotManager : MonoBehaviour
     [SerializeField] private Color negativeColor = Color.red;
 
     [SerializeField] private TextMeshProUGUI speechBubble;
+
     private string currentMessageType;
 
-    private void Awake() { speechBubble = GetComponentInChildren<TextMeshProUGUI>(); }
+    private void Awake() 
+    { 
+        speechBubble = GetComponentInChildren<TextMeshProUGUI>(); 
+    }
 
     private void Start()
     {
         AssignRandomMessage();
-        if (currentMessageType == BOT_TYPE) ScoreManager.Instance.AddMaxScore(1);
+
+        if (currentMessageType == BOT_TYPE)
+        {
+            ScoreManager.Instance.AddMaxScore(1);
+        }
     }
 
     public void AssignRandomMessage()
     {
-        bool isBotMessage = Random.value > 0.5f;
-        currentMessageType = isBotMessage ? BOT_TYPE : HUMAN_TYPE;
+        currentMessageType = Random.value > 0.5f ? BOT_TYPE : HUMAN_TYPE;
+
         if (messages.ContainsKey(currentMessageType))
         {
-            speechBubble.text = messages[currentMessageType][Random.Range(0, messages[currentMessageType].Count)];
+            speechBubble.text = messages[currentMessageType]
+                [Random.Range(0, messages[currentMessageType].Count)];
         }
     }
 
@@ -134,29 +143,47 @@ public class BotManager : MonoBehaviour
     {
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
-        if (currentMessageType == BOT_TYPE) { ScoreManager.Instance.AddScore(1); ShowPopup("+1", positiveColor); }
-        else { ScoreManager.Instance.AddScore(-1); ShowPopup("-1", negativeColor); }
-        gameObject.SetActive(false);
+        HandleBotInteraction(clicked: true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerPassZone"))
-        {
-            if (currentMessageType == BOT_TYPE) { ScoreManager.Instance.AddScore(-1); ShowPopup("-1", negativeColor); }
-            else { ScoreManager.Instance.AddScore(1); ShowPopup("+1", positiveColor); }
-            gameObject.SetActive(false);
-        }
+        if (!other.CompareTag("PlayerPassZone")) return;
+
+        HandleBotInteraction(clicked: false);
     }
 
     private void ShowPopup(string text, Color color)
     {
         if (popupTextPrefab == null) return;
-        Canvas canvas = Object.FindFirstObjectByType<Canvas>(); 
+
+        Canvas canvas = Object.FindFirstObjectByType<Canvas>();
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up);
+
         GameObject popup = Instantiate(popupTextPrefab, canvas.transform);
         popup.GetComponent<RectTransform>().position = screenPos;
+
         TextMeshProUGUI textMesh = popup.GetComponent<TextMeshProUGUI>();
-        if (textMesh != null) { textMesh.text = text; textMesh.color = color; }
+        if (textMesh != null)
+        {
+            textMesh.text = text;
+            textMesh.color = color;
+        }
     }
+
+    private void HandleBotInteraction(bool clicked)
+    {
+        bool isBot =  currentMessageType == BOT_TYPE;
+
+        int scoreDelta = clicked
+            ? (isBot ? 1 : -1)
+            : (isBot ? -1 : 1);
+
+        ScoreManager.Instance.AddScore(scoreDelta);
+
+        ShowPopup(scoreDelta > 0 ? "+1" : "-1", scoreDelta > 0 ? positiveColor : negativeColor);
+
+        gameObject.SetActive(false);
+    }
+
 }
